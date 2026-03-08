@@ -10,17 +10,3 @@
     "node": ">=16"
   }
 }
-```
-
-**Step 2** — Save it as `package.json` (not `package.json.txt`) in:
-```
-C:\Users\spsvv\OneDrive\Desktop\StarTrack Digital\Webpages\siteonixai
-```
-
-Make sure when saving in Notepad you set **"Save as type"** to **All Files** so it doesn't add `.txt` to the end.
-
-**Step 3** — Then run:
-```
-git add package.json
-git commit -m "add package.json"
-git push origin master
