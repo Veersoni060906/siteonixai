@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Siteonix AI — Build websites. Get paid.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="page-home">
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- TOP NAV -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M2 9C2 5.134 5.134 2 9 2s7 3.134 7 7-3.134 7-7 7S2 12.866 2 9z" fill="currentColor" opacity=".3"/>
+            <path d="M6 9c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="brand-text">Siteonix</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#how" class="nav-link">Process</a>
+        <a href="builder.html" class="nav-link">Builder</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="topbar-right">
+        <a href="builder.html" class="btn-nav">Open Builder →</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-dot"></span>
+          AI-powered web creation
+        </div>
+
+        <h1 class="hero-title">
+          Websites that<br/>
+          <em>sell themselves</em>
+        </h1>
+
+        <p class="hero-sub">
+          Describe a business. Watch AI build a complete, conversion-ready
+          website in under 60 seconds. No code. No templates. No limits.
+        </p>
+
+        <div class="hero-cta">
+          <a href="builder.html" class="btn-primary" id="startBtn">
+            Start building free
+            <span class="btn-arrow">→</span>
+          </a>
+          <button class="btn-secondary" id="demoBtn" type="button">
+            See it in action
+          </button>
+        </div>
+
+        <div class="hero-proof">
+          <div class="proof-item">
+            <span class="proof-num">15K+</span>
+            <span class="proof-label">sites generated</span>
+          </div>
+          <div class="proof-sep"></div>
+          <div class="proof-item">
+            <span class="proof-num">$2.3M</span>
+            <span class="proof-label">value created</span>
+          </div>
+          <div class="proof-sep"></div>
+          <div class="proof-item">
+            <span class="proof-num">&lt;60s</span>
+            <span class="proof-label">to first preview</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative preview card -->
+      <div class="hero-visual">
+        <div class="preview-card">
+          <div class="preview-card-bar">
+            <span class="pcb-dot" style="background:#ff6b6b"></span>
+            <span class="pcb-dot" style="background:#ffd93d"></span>
+            <span class="pcb-dot" style="background:#6bcb77"></span>
+            <span class="pcb-url">siteonix.ai/preview/barber-co</span>
+          </div>
+          <div class="preview-card-body">
+            <div class="pc-hero-block">
+              <div class="pc-tag">PREMIUM GROOMING</div>
+              <div class="pc-h">Clean fades. Sharp lines.</div>
+              <div class="pc-sub">Book your next cut in seconds.</div>
+              <div class="pc-btns">
+                <div class="pc-btn pc-btn-fill">Book Now →</div>
+                <div class="pc-btn">Our Services</div>
+              </div>
+            </div>
+            <div class="pc-cards">
+              <div class="pc-card"><div class="pc-card-icon">✂</div><div class="pc-card-t">Precision Cut</div></div>
+              <div class="pc-card"><div class="pc-card-icon">⭐</div><div class="pc-card-t">4.9 Rating</div></div>
+              <div class="pc-card"><div class="pc-card-icon">📅</div><div class="pc-card-t">Same-day</div></div>
+            </div>
+          </div>
+          <div class="preview-card-badge">Generated in 42s</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section-how">
+      <div class="container">
+        <div class="section-label">The process</div>
+        <h2 class="section-title">Three steps.<br/>First client.</h2>
+
+        <div class="steps-grid">
+          <div class="step-item" style="--delay: 0ms">
+            <div class="step-num">01</div>
+            <div class="step-icon-wrap">💬</div>
+            <h3>Describe</h3>
+            <p>Tell Siteonix what business you're building for. Be as specific as you want — the AI adapts to your vision.</p>
+          </div>
+
+          <div class="step-connector" aria-hidden="true">
+            <svg width="60" height="2"><line x1="0" y1="1" x2="60" y2="1" stroke="currentColor" stroke-dasharray="4 4"/></svg>
+          </div>
+
+          <div class="step-item" style="--delay: 120ms">
+            <div class="step-num">02</div>
+            <div class="step-icon-wrap">⚡</div>
+            <h3>Generate</h3>
+            <p>Claude AI writes the complete HTML, CSS, and JavaScript. Real working code, not a template.</p>
+          </div>
+
+          <div class="step-connector" aria-hidden="true">
+            <svg width="60" height="2"><line x1="0" y1="1" x2="60" y2="1" stroke="currentColor" stroke-dasharray="4 4"/></svg>
+          </div>
+
+          <div class="step-item" style="--delay: 240ms">
+            <div class="step-num">03</div>
+            <div class="step-icon-wrap">💳</div>
+            <h3>Get paid</h3>
+            <p>Share the preview, close the client. Export the code, deploy it, offer hosting upsells.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES STRIP -->
+    <section class="section-features">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h4>Real AI generation</h4>
+            <p>Powered by Claude — the most capable AI for structured code generation. Not templates, not fill-in-the-blanks.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h4>Tailored designs</h4>
+            <p>Each generation is unique. Different layouts, palettes, and sections based on your business context.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h4>Exportable code</h4>
+            <p>Clean, production-ready HTML you can deploy anywhere. Tweak in the editor or hand off to a developer.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h4>Fully responsive</h4>
+            <p>Every generated page is mobile-first. Preview in desktop, tablet, or mobile instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-faq">
+      <div class="container">
+        <div class="section-label">Questions</div>
+        <h2 class="section-title">Got questions?</h2>
+
+        <div class="faq-grid">
+          <div class="faq-col">
+            <details class="faq-item" open>
+              <summary>Do I need coding experience?</summary>
+              <div class="faq-body">None at all. You describe what you want in plain English, and Siteonix builds the entire site for you. If you want to customize further, the code is clean and easy to edit.</div>
+            </details>
+            <details class="faq-item">
+              <summary>How do I find clients?</summary>
+              <div class="faq-body">Local niches work best: barbers, salons, realtors, restaurants, tutors. Generate a free preview for a business that has no site, then pitch it to them. The visual does the selling.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Can I really charge $500+?</summary>
+              <div class="faq-body">Yes — especially for businesses without any web presence. You're not just selling a website, you're selling setup, hosting, edits, and an ongoing relationship. The preview makes closing trivial.</div>
+            </details>
+          </div>
+          <div class="faq-col">
+            <details class="faq-item">
+              <summary>What does the AI actually generate?</summary>
+              <div class="faq-body">A complete, single-file HTML page with embedded CSS and JavaScript. Includes hero, features, testimonials, pricing, FAQ, and footer — all tailored to the business type you describe.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Can I edit the output?</summary>
+              <div class="faq-body">Yes. Switch to the Code tab in the builder to edit the raw HTML directly, then click "Apply" to see changes live in the preview. Or export and edit in any text editor.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Is there a free tier?</summary>
+              <div class="faq-body">Yes — you can start building immediately with no credit card required. Generate previews, export code, and test with real clients before committing to a paid plan.</div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="section-cta">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-label">Ready to start?</div>
+          <h2>Your first website<br/>is one prompt away.</h2>
+          <a href="builder.html" class="btn-primary btn-large">
+            Open the Builder
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M2 9C2 5.134 5.134 2 9 2s7 3.134 7 7-3.134 7-7 7S2 12.866 2 9z" fill="currentColor" opacity=".3"/>
+            <path d="M6 9c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z" fill="currentColor"/>
+          </svg>
+        </div>
+        <span>Siteonix AI</span>
+      </div>
+      <div class="footer-links">
+        <a href="#how">Process</a>
+        <a href="builder.html">Builder</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-copy">© 2026 Siteonix AI</div>
+    </div>
+  </footer>
+
+  <script src="home.js"></script>
+</body>
+</html>

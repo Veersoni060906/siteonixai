@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Builder — Siteonix AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="page-builder">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M2 9C2 5.134 5.134 2 9 2s7 3.134 7 7-3.134 7-7 7S2 12.866 2 9z" fill="currentColor" opacity=".3"/>
+            <path d="M6 9c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="brand-text">Siteonix</span>
+      </a>
+
+      <div style="font-size:14px; font-weight:500; color:var(--ink-muted)">
+        Landing Page Builder
+      </div>
+
+      <div class="topbar-right">
+        <button class="btn-nav" id="exportBtn" style="display:none">Export HTML</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- BUILDER LAYOUT -->
+  <div class="builder-layout">
+
+    <!-- ======== LEFT PANEL ======== -->
+    <aside class="panel-left">
+
+      <!-- STATE: IDLE -->
+      <div class="panel-state active" id="stateIdle">
+        <div class="idle-scroll">
+          <div class="idle-welcome">
+            <div class="idle-icon">✨</div>
+            <h2>Let's build something</h2>
+            <p>Describe your landing page — Claude AI will generate production-ready code in seconds.</p>
+          </div>
+
+          <div class="chips-grid">
+            <div class="chip">🤖 Powered by Claude AI</div>
+            <div class="chip">✏️ Fully editable output</div>
+            <div class="chip">📤 Export-ready HTML</div>
+          </div>
+
+          <div class="history-section" id="idleHistory" style="display:none">
+            <div class="history-section-title">Recent prompts</div>
+            <div class="history-items" id="idleHistoryList"></div>
+          </div>
+        </div>
+
+        <div class="input-dock">
+          <textarea
+            id="promptIdle"
+            class="prompt-textarea"
+            placeholder="e.g. 'Modern barber shop landing page with hero, services, pricing, and a booking CTA'"
+            rows="4"
+          ></textarea>
+          <div class="dock-actions">
+            <button class="btn-generate" id="generateBtn">
+              Generate
+              <span>→</span>
+            </button>
+            <span class="kb-hint">⌘↵ to generate</span>
+          </div>
+          <div class="toggle-row">
+            <label class="toggle-switch">
+              <input type="checkbox" id="imgToggle" checked>
+              <span class="toggle-track"></span>
+            </label>
+            <label for="imgToggle" class="toggle-label">Include image placeholders</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATE: GENERATING -->
+      <div class="panel-state" id="stateGenerating">
+        <div class="gen-header">
+          <div class="gen-badge">
+            <span class="gen-dot"></span>
+            <span id="genLabel">Generating…</span>
+          </div>
+        </div>
+
+        <div class="gen-body">
+          <div class="gen-progress-label">
+            <span>Building your page</span>
+            <span class="gen-pct" id="genPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="genBar"></div>
+          </div>
+
+          <div class="steps-list" id="stepsList"></div>
+        </div>
+
+        <div class="input-dock" style="border-top: 1px solid var(--border); padding:14px;">
+          <button class="btn-reset" id="cancelBtn" style="width:100%; text-align:center;">Cancel</button>
+        </div>
+      </div>
+
+      <!-- STATE: DONE -->
+      <div class="panel-state" id="stateDone">
+        <div class="done-scroll">
+          <div class="done-badge">
+            <div class="done-check">✅</div>
+            <div>
+              <div class="done-label">Page generated!</div>
+              <div class="done-sub">Tweak and regenerate anytime.</div>
+            </div>
+          </div>
+
+          <div class="done-prompt-section">
+            <label>Refine your prompt</label>
+            <textarea
+              id="promptDone"
+              class="prompt-textarea"
+              placeholder="Describe changes or a new page…"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="done-actions">
+            <button class="btn-regen" id="regenBtn">Regenerate</button>
+            <button class="btn-reset" id="resetBtn">New</button>
+          </div>
+
+          <div class="history-section">
+            <div class="history-section-title">Prompt History</div>
+            <div class="history-items" id="historyList"></div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ======== RIGHT PANEL ======== -->
+    <section class="panel-right">
+
+      <!-- TOOLBAR -->
+      <div class="right-toolbar">
+        <div class="seg-control">
+          <button class="seg-btn active" id="previewTab">🌐 Preview</button>
+          <button class="seg-btn" id="codeTab">&lt;/&gt; Code</button>
+        </div>
+
+        <div class="device-control">
+          <button class="device-btn active" id="desktopBtn" title="Desktop">🖥</button>
+          <button class="device-btn" id="tabletBtn" title="Tablet">📟</button>
+          <button class="device-btn" id="mobileBtn" title="Mobile">📱</button>
+          <button class="device-btn" id="fullBtn" title="Fullscreen">⛶</button>
+        </div>
+
+        <div class="right-actions">
+          <button class="btn-toolbar" id="copyBtn" style="display:none">Copy HTML</button>
+        </div>
+      </div>
+
+      <!-- PREVIEW AREA -->
+      <div class="preview-container">
+        <div class="preview-wrapper" id="previewWrapper">
+
+          <!-- Empty state -->
+          <div class="preview-empty" id="previewEmpty">
+            <div class="preview-empty-inner">
+              <div class="preview-empty-icon">🌐</div>
+              <h3>Preview appears here</h3>
+              <p>Enter a prompt and click Generate to see your page come to life.</p>
+            </div>
+          </div>
+
+          <!-- IFrame -->
+          <iframe id="previewFrame" title="Website Preview" style="display:none"></iframe>
+
+          <!-- Generating overlay -->
+          <div class="generating-overlay" id="genOverlay">
+            <div class="orb-wrap">
+              <div class="orb">
+                <div class="orb-ring"></div>
+                <div class="orb-core">AI</div>
+              </div>
+              <div class="orb-status" id="orbStatus">Generating your page…</div>
+            </div>
+          </div>
+
+          <!-- Code panel -->
+          <div class="code-panel" id="codePanel">
+            <textarea id="codeOutput" spellcheck="false" placeholder="Generated HTML will appear here…"></textarea>
+            <div class="code-footer">
+              <button class="btn-toolbar" id="copyCodeBtn">Copy</button>
+              <button class="btn-generate" id="applyCodeBtn">Apply to Preview</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <script src="builder.js"></script>
+</body>
+</html>
