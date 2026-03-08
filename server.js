@@ -5,7 +5,7 @@
  * Proxies /api/generate → api.anthropic.com/v1/messages
  *
  * Usage:
- *   ANTHROPIC_API_KEY=sk-ant-yourkey node server.js
+ *   ANTHROPIC_API_KEY=sk-ant-... node server.js
  *
  * No npm install needed — uses only Node.js built-ins.
  */
@@ -21,7 +21,7 @@ const API_KEY = process.env.ANTHROPIC_API_KEY || "";
 
 if (!API_KEY) {
   console.warn("\n⚠  ANTHROPIC_API_KEY is not set.");
-  console.warn("   Set it before starting: ANTHROPIC_API_KEY=sk-ant- node server.js\n");
+  console.warn("   Set it before starting: ANTHROPIC_API_KEY=sk-ant-... node server.js\n");
 }
 
 // ── MIME types for static file serving ───────────────────────
@@ -143,7 +143,7 @@ const server = http.createServer(async (req, res) => {
   serveStatic(pathname, res);
 });
 
-server.listen(PORT, "127.0.0.1", () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`\n✅ Siteonix AI running at http://localhost:${PORT}`);
   console.log(`   Open → http://localhost:${PORT}/index.html`);
   console.log(`   Builder → http://localhost:${PORT}/builder.html`);
